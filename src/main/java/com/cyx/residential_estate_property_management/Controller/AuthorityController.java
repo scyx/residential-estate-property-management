@@ -1,7 +1,6 @@
 package com.cyx.residential_estate_property_management.Controller;
 
 import com.cyx.residential_estate_property_management.Bean.AuthorityGroup;
-import com.cyx.residential_estate_property_management.Bean.HouseHold;
 import com.cyx.residential_estate_property_management.Result.Result;
 import com.cyx.residential_estate_property_management.Service.AuthorityGroupService;
 import io.swagger.annotations.Api;
