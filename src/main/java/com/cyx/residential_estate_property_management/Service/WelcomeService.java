@@ -16,6 +16,11 @@ import java.util.Map;
 public class WelcomeService {
     @Autowired
     HouseHoldDao houseHoldDao;
+
+    /**
+     * 获取首页的几个人数
+     * @return
+     */
     public Result<Map<String, Integer>> getWelComeNum() {
         Map<String,Integer> map  = new HashMap<>();
         map.put("householdNum",houseHoldDao.getPeopleSum());
