@@ -11,6 +11,12 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserDao {
     String table = " user ";
+
+    /**
+     * 登录
+     * @param user
+     * @return
+     */
     @Select("select * from" + table + "where username = #{username} and password = #{password}")
     public User login(User user);
 }
