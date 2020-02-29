@@ -28,8 +28,7 @@ public class UserService {
 
     /**
      *
-     * @param httpServletResponse
-     * @param token
+     * @param token 生成的随机UUID串
      * @return
      */
     public Cookie generateCookie(String token) {
