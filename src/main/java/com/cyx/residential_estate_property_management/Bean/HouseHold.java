@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * @author cyx
  * @data 2020/1/7 17:40
- * 住户
+ * 住户实体
  */
 
 @Table(name = "household")
