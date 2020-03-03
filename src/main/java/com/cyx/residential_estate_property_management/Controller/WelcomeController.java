@@ -20,7 +20,7 @@ public class WelcomeController {
     @Autowired
     WelcomeService welcomeService;
 
-    @ApiOperation("获取首页住户总数，房屋总数、空闲数，停车位总数、空闲数")
+    @ApiOperation("获取首页住户总数，业主总数，房屋总数、空闲数，停车位总数、空闲数")
     @GetMapping("getWelComeNum")
     public Result<Map<String, Integer>> getWelComeNum() {
         return welcomeService.getWelComeNum();

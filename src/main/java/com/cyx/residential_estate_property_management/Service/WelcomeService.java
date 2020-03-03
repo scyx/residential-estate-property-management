@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 首页的服务 主要用于查询业主 住户 房屋 车位的数量以及最新公告
  * @author cyx
  * @data 2020/2/4 20:30
  */
@@ -23,7 +24,8 @@ public class WelcomeService {
      */
     public Result<Map<String, Integer>> getWelComeNum() {
         Map<String,Integer> map  = new HashMap<>();
-        map.put("householdNum",houseHoldDao.getPeopleSum());
+        map.put("householdNum",houseHoldDao.getHouseholdSum());
+        map.put("livePeopleNum",houseHoldDao.getLivePeopleSum());
         return Result.success(map);
     }
 }

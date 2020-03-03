@@ -30,7 +30,8 @@ public interface HouseHoldDao {
             "or telephone like CONCAT('%',#{query},'%')" +
             "or gender like CONCAT('%',#{query},'%')" +
             "or address like CONCAT('%',#{query},'%')" +
-            "or birthday like CONCAT('%',#{query},'%')" )
+            "or birthday like binary CONCAT('%',#{query},'%')" +
+            "or create_user like CONCAT('%',#{query},'%')" )
     List<HouseHold> getHouseHoldListByQuery(String query);
 
     /**
@@ -78,11 +79,11 @@ public interface HouseHoldDao {
     List<HouseHold> getHouseHoldIsFListByQuery(String query);
 
     /**
-     * 获取所有住户数量
+     * 获取业主数量
      * @return
      */
-    @Select("select count(*) from household")
-    Integer getPeopleSum();
+    @Select("select count(*) from household where is_f ='是'")
+    Integer getHouseholdSum();
 
     /**
      * 给业主添加成员
@@ -93,4 +94,12 @@ public interface HouseHoldDao {
     @Insert("insert into household (household_name,telephone,gender,address,birthday,f_id,is_f,create_user) " +
             "values (#{household.household_name},#{household.telephone},#{household.gender},#{household.address},#{household.birthday},#{id},'否',#{household.create_user})")
     Integer addMemberByHouseHoldId(@Param("id") Integer id, @Param("household") HouseHold houseHold);
+
+
+    /**
+     * 获取所有住户的数量
+     * @return
+     */
+    @Select("select count(*) from household")
+    Integer getLivePeopleSum();
 }

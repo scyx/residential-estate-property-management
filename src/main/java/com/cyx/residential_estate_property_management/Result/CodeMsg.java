@@ -21,7 +21,8 @@ public class CodeMsg {
     public static CodeMsg ADD_HOUSEHOLD_FAIL = new CodeMsg(500216,"添加失败！");
     public static CodeMsg GET_HOUSEHOLDBYID_FAIL = new CodeMsg(500217,"获取住户信息失败！");
     public static CodeMsg HOUSEHOLDBYID_NOT_EXIST = new CodeMsg(500218,"住户不存在");
-
+    public static CodeMsg ADD_HOUSE_SUCCESS = new CodeMsg(200,"添加成功！");
+    public static CodeMsg ADD_HOUSE_FAIL = new CodeMsg(200,"添加失败！");
 
     public CodeMsg(int code, String msg) {
         this.code = code;

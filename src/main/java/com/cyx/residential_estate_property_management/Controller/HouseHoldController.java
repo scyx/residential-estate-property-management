@@ -51,7 +51,6 @@ public class HouseHoldController {
     @PostMapping("addHouseHold")
     public Result<CodeMsg> addHouseHold(@RequestBody HouseHold houseHold) {
         int res = houseHoldService.addHouseHold(houseHold);
-        System.out.println(res);
         if(res !=0){
             return Result.success(CodeMsg.ADD_HOUSEHOLD_SUCCESS);
         }

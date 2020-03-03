@@ -38,11 +38,10 @@ public class HouseHoldService {
         PageHelper.startPage(pageNum,pageSize);
         if(StringUtil.isEmpty(query)){
             list = houseHoldDao.getHouseHoldList();
-            houseHoldpageInfo = new PageInfo<HouseHold>(list);
-            return houseHoldpageInfo;
+        }else {
+            list = houseHoldDao.getHouseHoldListByQuery(query);
         }
-        list = houseHoldDao.getHouseHoldListByQuery(query);
-        houseHoldpageInfo = new PageInfo<>(list);
+        houseHoldpageInfo = new PageInfo<HouseHold>(list);
         return houseHoldpageInfo;
     }
 
