@@ -79,17 +79,17 @@ public class HouseHoldController {
      * @return
      */
     @ApiOperation("编辑住户")
-    @PutMapping("submitEdit/{id}")
+    @PutMapping("editHouseHold/{id}")
     public Result<CodeMsg> submitEdit(@PathVariable(value = "id") Integer id,
                                       @RequestBody HouseHold houseHold) {
         HouseHold selectHouseHold = houseHoldService.getHouseHoldById(id);
         if(selectHouseHold != null) {
             if (selectHouseHold.equals(houseHold)) {
-                return Result.success(CodeMsg.ADD_HOUSEHOLD_SUCCESS);
+                return Result.success(CodeMsg.SUBMIT_EDIT_SUCCESS);
             } else {
                 Integer res = houseHoldService.save(houseHold);
-                if (res != 0) return Result.success(CodeMsg.SUBMIT_EDIT_HOUSEHOLD_SUCCESS);
-                else return Result.error(CodeMsg.SUBMIT_EDIT_HOUSEHOLD_FAIL);
+                if (res != 0) return Result.success(CodeMsg.SUBMIT_EDIT_SUCCESS);
+                else return Result.error(CodeMsg.SUBMIT_EDIT_FAIL);
             }
         } else {
             return Result.error(CodeMsg.HOUSEHOLDBYID_NOT_EXIST);
@@ -106,9 +106,9 @@ public class HouseHoldController {
     public Result<CodeMsg> deleteHouseHoldById(@PathVariable(value = "id") Integer id) {
         Integer res = houseHoldService.deleteHouseHoldById(id);
         if (res != 0) {
-            return Result.success(CodeMsg.DELETE_HOUSEHOLD_SUCCESS);
+            return Result.success(CodeMsg.DELETE_SUCCESS);
         } else {
-            return Result.error(CodeMsg.DELETE_HOUSEHOLD_FAIL);
+            return Result.error(CodeMsg.DELETE_FAIL);
         }
     }
 

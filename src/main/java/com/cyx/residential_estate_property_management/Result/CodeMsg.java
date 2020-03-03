@@ -11,13 +11,13 @@ public class CodeMsg {
 
     public static CodeMsg PASSWORD_ERROR = new CodeMsg(500215,"登录失败！用户名或密码错误");
     public static CodeMsg ADD_HOUSEHOLD_SUCCESS = new CodeMsg(200,"添加成功！");
-    public static CodeMsg SUBMIT_EDIT_HOUSEHOLD_SUCCESS = new CodeMsg(200,"修改信息成功！");
+    public static CodeMsg SUBMIT_EDIT_SUCCESS = new CodeMsg(200,"修改信息成功！");
     public static CodeMsg ADD_MEMBER_SUCCESS = new CodeMsg(200,"添加业主成员成功！");
     public static CodeMsg ADD_MEMBER_FAIL = new CodeMsg(500200,"添加业主成员失败！");
     public static CodeMsg HOUSEHOLD_NOT_CHANGE = new CodeMsg(200,"信息无变化！");
-    public static CodeMsg SUBMIT_EDIT_HOUSEHOLD_FAIL = new CodeMsg(200,"修改信息失败！");
-    public static CodeMsg DELETE_HOUSEHOLD_SUCCESS = new CodeMsg(200,"删除成功！");
-    public static CodeMsg DELETE_HOUSEHOLD_FAIL = new CodeMsg(500219,"删除失败！");
+    public static CodeMsg SUBMIT_EDIT_FAIL = new CodeMsg(200,"修改信息失败！");
+    public static CodeMsg DELETE_SUCCESS = new CodeMsg(200,"删除成功！");
+    public static CodeMsg DELETE_FAIL = new CodeMsg(500219,"删除失败！");
     public static CodeMsg ADD_HOUSEHOLD_FAIL = new CodeMsg(500216,"添加失败！");
     public static CodeMsg GET_HOUSEHOLDBYID_FAIL = new CodeMsg(500217,"获取住户信息失败！");
     public static CodeMsg HOUSEHOLDBYID_NOT_EXIST = new CodeMsg(500218,"住户不存在");

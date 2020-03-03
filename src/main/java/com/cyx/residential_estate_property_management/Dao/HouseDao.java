@@ -1,10 +1,7 @@
 package com.cyx.residential_estate_property_management.Dao;
 
 import com.cyx.residential_estate_property_management.Bean.House;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -41,6 +38,17 @@ public interface HouseDao {
             "or create_user like CONCAT('%',#{query},'%')")
     List<House> getHouseListByQuery(@Param("query") String query);
 
-    @Select("select house_name,remark,create_user,create_date from house where id = #{id}")
-    House getHouseById(int id);
+    /**
+     * 根据id获取楼栋信息
+     * @param id
+     * @return
+     */
+    @Select("select house_id,house_name,remark,create_user,create_date from house where house_id = #{id}")
+    House getHouseById(Integer id);
+
+    /**
+     * 根据id删除楼栋
+     */
+    @Delete("delete from house where house_id = #{id}")
+    Integer deleteHouseById(Integer id);
 }

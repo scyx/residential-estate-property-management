@@ -20,6 +20,8 @@ import java.util.List;
 public class HouseService implements IgetList {
     @Autowired
     HouseDao houseDao;
+    @Autowired
+    BaseMysqlCRUDManager baseMysqlCRUDManager;
     /**
      * 楼栋列表
      */
@@ -55,5 +57,30 @@ public class HouseService implements IgetList {
         }
         housePageInfo = new PageInfo<House>(list);
         return housePageInfo;
+    }
+
+    /**
+     * 根据id获取具体楼栋信息
+     * @param id
+     * @return
+     */
+    public House getHouseById(Integer id) {
+        return houseDao.getHouseById(id);
+    }
+
+    /**
+     * 根据id删除楼栋
+     */
+    public Integer deleteHouseById(Integer id) {
+        return houseDao.deleteHouseById(id);
+    }
+
+    /**
+     * 保存楼栋修改信息
+     * @param house
+     * @return
+     */
+    public Integer save(House house) {
+        return baseMysqlCRUDManager.save(house);
     }
 }
