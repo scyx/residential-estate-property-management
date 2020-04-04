@@ -30,6 +30,9 @@ public class LogAspect {
         MethodSignature methodSignature = (MethodSignature) signature;//获取参数名
         int i = 0;
         for (Object arg : joinPoint.getArgs()) {
+            if(arg == null) {
+                break;
+            }
             sb.append(methodSignature.getParameterNames()[i++] + ":");
             sb.append(arg.toString() + " ");
         }

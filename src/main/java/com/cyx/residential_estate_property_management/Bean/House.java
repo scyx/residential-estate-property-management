@@ -44,6 +44,6 @@ public class House {
     /**
      * 楼栋备注
      */
-    @Column(name = "remark",type = MySqlTypeConstant.VARCHAR,length = 20,isNull = false)
+    @Column(name = "remark",type = MySqlTypeConstant.VARCHAR,length = 500,isNull = false)
     private String remark;
 }

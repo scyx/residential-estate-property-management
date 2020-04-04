@@ -34,7 +34,7 @@ public interface HouseDao {
      */
     @Select(select_all + "where house_name like CONCAT('%',#{query},'%')" +
             "or remark  like CONCAT('%',#{query},'%')" +
-            "or create_date like CONCAT('%',#{query},'%')" +
+            "or create_date like binary CONCAT('%',#{query},'%')" +
             "or create_user like CONCAT('%',#{query},'%')")
     List<House> getHouseListByQuery(@Param("query") String query);
 

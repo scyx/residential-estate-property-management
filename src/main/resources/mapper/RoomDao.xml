@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyx.residential_estate_property_management.Dao.RoomDao">
+    <select id="getRoomList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Room">
+        select id,room_id,house_id,unit_id,floor_num,area,status,remark,room_num,hall_num
+        from room where 1=1
+        <choose>
+            <when test="house_id != 0 and house_id != ''">
+                and house_id = #{house_id}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="unit_id != 0 and unit_id != ''">
+				and unit_id = #{unit_id}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+		<choose>
+			<when test="room_id != 0 and room_id != ''">
+				and room_id = #{room_id}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+
+    </select>
+</mapper>

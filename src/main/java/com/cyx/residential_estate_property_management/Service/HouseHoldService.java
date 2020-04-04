@@ -22,7 +22,7 @@ public class HouseHoldService {
     @Autowired
     BaseMysqlCRUDManager baseMysqlCRUDManager;
 
-    PageInfo<HouseHold> houseHoldpageInfo;
+    PageInfo<HouseHold> houseHoldPageInfo;
     List<HouseHold> list;
 
     /**
@@ -41,8 +41,8 @@ public class HouseHoldService {
         }else {
             list = houseHoldDao.getHouseHoldListByQuery(query);
         }
-        houseHoldpageInfo = new PageInfo<HouseHold>(list);
-        return houseHoldpageInfo;
+        houseHoldPageInfo = new PageInfo<HouseHold>(list);
+        return houseHoldPageInfo;
     }
 
     /**
@@ -104,12 +104,12 @@ public class HouseHoldService {
         if(StringUtil.isEmpty(query)){
             PageHelper.startPage(pageNum,pageSize);
             list = houseHoldDao.getHouseHoldIsFList();
-            houseHoldpageInfo = new PageInfo<HouseHold>(list);
-            return houseHoldpageInfo;
+            houseHoldPageInfo = new PageInfo<HouseHold>(list);
+            return houseHoldPageInfo;
         }
         list = houseHoldDao.getHouseHoldIsFListByQuery(query);
-        houseHoldpageInfo = new PageInfo<>(list);
-        return houseHoldpageInfo;
+        houseHoldPageInfo = new PageInfo<>(list);
+        return houseHoldPageInfo;
     }
 
     /**

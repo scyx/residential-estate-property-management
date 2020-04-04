@@ -31,9 +31,9 @@ public class HouseController {
     public Result<CodeMsg> addHouse(@RequestBody House house) {
         int res = houseService.addHouse(house);
         if(res !=0){
-            return Result.success(CodeMsg.ADD_HOUSE_SUCCESS);
+            return Result.success(CodeMsg.ADD_SUCCESS);
         }
-        return Result.error(CodeMsg.ADD_HOUSE_FAIL);
+        return Result.error(CodeMsg.ADD_FAIL);
     }
 
     @ApiOperation("获取楼栋列表")
@@ -59,7 +59,7 @@ public class HouseController {
         return res==0 ? Result.error(CodeMsg.DELETE_FAIL) :Result.success(CodeMsg.DELETE_SUCCESS);
     }
 
-    @ApiOperation("编辑住户")
+    @ApiOperation("编辑楼栋信息")
     @PutMapping("editHouse/{id}")
     public Result<CodeMsg> submitEdit(@PathVariable(value = "id") Integer id,
                                       @RequestBody House house) {
@@ -69,6 +69,7 @@ public class HouseController {
                 return Result.success(CodeMsg.SUBMIT_EDIT_SUCCESS);
             } else {
                 Integer res = houseService.save(house);
+                System.out.println("save操作的返回值为：" + res + "..............");
                 if (res != 0) return Result.success(CodeMsg.SUBMIT_EDIT_SUCCESS);
                 else return Result.error(CodeMsg.SUBMIT_EDIT_FAIL);
             }

@@ -136,6 +136,7 @@ public class HouseHoldController {
     public Result<PageInfo<HouseHold>> getHouseHoldIsFList(@RequestParam Integer pageNum,
                                                         @RequestParam Integer pageSize,
                                                         @RequestParam String query) {
+        System.out.println("query" + query);
         PageInfo<HouseHold> houseHoldPageInfo = houseHoldService.getHouseHoldIsFList(pageNum,pageSize,query);
         return Result.success(houseHoldPageInfo);
     }
