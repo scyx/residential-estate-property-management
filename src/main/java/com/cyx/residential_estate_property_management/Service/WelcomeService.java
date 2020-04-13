@@ -1,6 +1,6 @@
 package com.cyx.residential_estate_property_management.Service;
 
-import com.cyx.residential_estate_property_management.Dao.HouseHoldDao;
+import com.cyx.residential_estate_property_management.Dao.Household.HouseHoldDao;
 import com.cyx.residential_estate_property_management.Result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

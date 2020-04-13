@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.cyx.residential_estate_property_management.Dao")
+@MapperScan({"com.cyx.residential_estate_property_management.Dao.Mapper","com.cyx.residential_estate_property_management.Dao"})
 @SpringBootApplication
 public class ResidentialEstatePropertyManagementApplication {
 

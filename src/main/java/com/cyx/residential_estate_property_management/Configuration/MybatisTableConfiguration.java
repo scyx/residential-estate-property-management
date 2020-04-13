@@ -7,8 +7,15 @@ import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author cyx
@@ -63,8 +70,28 @@ public class MybatisTableConfiguration {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolveMapperLocations());
         sqlSessionFactoryBean.setTypeAliasesPackage("com.cyx.residential_estate_property_management.Dao.*");
         return sqlSessionFactoryBean;
     }
+
+    public Resource[] resolveMapperLocations() {
+        ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
+        List<String> mapperLocations = new ArrayList<>();
+        mapperLocations.add("classpath*:com/cyx/residential_estate_property_management/Dao/Mapper/*.xml");
+        mapperLocations.add("classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml");
+        List<Resource> resources = new ArrayList();
+        if (mapperLocations != null) {
+            for (String mapperLocation : mapperLocations) {
+                try {
+                    Resource[] mappers = resourceResolver.getResources(mapperLocation);
+                    resources.addAll(Arrays.asList(mappers));
+                } catch (IOException e) {
+                    // ignore
+                }
+            }
+        }
+        return resources.toArray(new Resource[resources.size()]);
+    }
+
 }
