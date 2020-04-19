@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    @Before("execution(* com.cyx.residential_estate_property_management.Controller.*Controller.*(..))")
+    @Before("execution(* com.cyx.residential_estate_property_management.Controller.*.*Controller.*(..))")
     public void beforeMethod(JoinPoint joinPoint) {
         StringBuilder sb = new StringBuilder();
         Signature signature = joinPoint.getSignature();
@@ -40,7 +40,7 @@ public class LogAspect {
     }
 
     @Before("execution(* com.cyx.residential_estate_property_management.Controller.*Controller.*(..))" +
-    "&&!execution(* com.cyx.residential_estate_property_management.Controller.*LoginController.*(..))")
+    "&&!execution(* com.cyx.residential_estate_property_management.Controller.Commom.LoginController.*(..))")
     public void checkLogin(JoinPoint joinPoint) throws Exception {
         HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         Cookie[] cookies = req.getCookies();

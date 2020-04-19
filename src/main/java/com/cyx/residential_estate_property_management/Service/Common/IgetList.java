@@ -1,4 +1,4 @@
-package com.cyx.residential_estate_property_management.Service;
+package com.cyx.residential_estate_property_management.Service.Common;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;

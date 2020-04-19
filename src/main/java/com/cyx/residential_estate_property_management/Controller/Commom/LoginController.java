@@ -1,9 +1,9 @@
-package com.cyx.residential_estate_property_management.Controller;
+package com.cyx.residential_estate_property_management.Controller.Commom;
 
 import com.cyx.residential_estate_property_management.Result.CodeMsg;
 import com.cyx.residential_estate_property_management.Result.Result;
 import com.cyx.residential_estate_property_management.Bean.User;
-import com.cyx.residential_estate_property_management.Service.UserService;
+import com.cyx.residential_estate_property_management.Service.Common.UserService;
 import com.cyx.residential_estate_property_management.Util.TokenUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

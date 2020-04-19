@@ -35,7 +35,6 @@ public class RoomService {
 
         PageHelper.startPage(pageNum,pageSize);
         list = roomDao.getRoomList(houseId, unitId, roomId);
-        System.out.println(list.size());
         roomPageInfo = new PageInfo<Room>(list);
         return roomPageInfo;
     }
@@ -51,4 +50,5 @@ public class RoomService {
     public Room getRoomById(Integer id) {
         return roomDao.getRoomById(id);
     }
+
 }

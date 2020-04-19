@@ -2,7 +2,7 @@ package com.cyx.residential_estate_property_management.Service.Property;
 
 import com.cyx.residential_estate_property_management.Bean.Property.House;
 import com.cyx.residential_estate_property_management.Dao.Property.HouseDao;
-import com.cyx.residential_estate_property_management.Service.IgetList;
+import com.cyx.residential_estate_property_management.Service.Common.IgetList;
 import com.gitee.sunchenbin.mybatis.actable.manager.common.BaseMysqlCRUDManager;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

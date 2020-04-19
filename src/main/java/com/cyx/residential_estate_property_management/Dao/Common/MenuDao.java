@@ -1,4 +1,4 @@
-package com.cyx.residential_estate_property_management.Dao;
+package com.cyx.residential_estate_property_management.Dao.Common;
 
 import com.cyx.residential_estate_property_management.Vo.MenuVo;
 import org.apache.ibatis.annotations.Mapper;

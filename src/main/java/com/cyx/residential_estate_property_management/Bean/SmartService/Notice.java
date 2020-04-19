@@ -18,7 +18,7 @@ public class Notice {
     // 主键
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)
     private int id;
-    // 房屋编号
+    // 公告标题
     @Column(name = "title",type = MySqlTypeConstant.VARCHAR,length = 100,isNull = false)
     private String title;
     // 公告类型
@@ -29,6 +29,6 @@ public class Notice {
     @Column(name = "publish_time",type = MySqlTypeConstant.DATETIME,length = 50,isNull = false)
     private Date publish_time;
     // 内容
-    @Column(name = "content",type = MySqlTypeConstant.LONGTEXT,length = 50,isNull = false)
+    @Column(name = "content",type = MySqlTypeConstant.LONGTEXT,isNull = false)
     private String content;
 }

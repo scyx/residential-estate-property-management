@@ -1,7 +1,7 @@
-package com.cyx.residential_estate_property_management.Controller;
+package com.cyx.residential_estate_property_management.Controller.Commom;
 
 import com.cyx.residential_estate_property_management.Result.Result;
-import com.cyx.residential_estate_property_management.Service.MenuService;
+import com.cyx.residential_estate_property_management.Service.Common.MenuService;
 import com.cyx.residential_estate_property_management.Vo.MenuVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

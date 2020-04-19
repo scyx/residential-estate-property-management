@@ -4,6 +4,7 @@ import com.cyx.residential_estate_property_management.Bean.Property.Unit;
 import com.cyx.residential_estate_property_management.Result.CodeMsg;
 import com.cyx.residential_estate_property_management.Result.Result;
 import com.cyx.residential_estate_property_management.Service.Property.UnitService;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,10 +42,13 @@ public class UnitController {
      * @return
      */
     @ApiOperation("获取单元列表")
-    @GetMapping("getUnitList/{house_id}")
-    public Result<List<Unit>> getUnitList(@PathVariable("house_id") Integer house_id) {
-        List<Unit> list = unitService.getUnitList(house_id);
-        return Result.success(list);
+    @GetMapping("getUnitList")
+    public Result<PageInfo<Unit>> getUnitList(@RequestParam String query,
+                                              @RequestParam Integer house_id,
+                                                    @RequestParam Integer pageNum,
+                                                    @RequestParam Integer pageSize) {
+        PageInfo<Unit> pageInfo = unitService.getUnitList(query,house_id,pageNum,pageSize);
+        return Result.success(pageInfo);
     }
 
     @ApiOperation("根据id获取单元信息")
@@ -67,7 +71,7 @@ public class UnitController {
     @ApiOperation("根据id删除某个单元")
     @DeleteMapping("deleteUnitById/{id}")
     public Result<CodeMsg> deleteUnitById(@PathVariable("id") Integer id) {
-        Integer res = unitService.deleteById(id);
+        Integer res = unitService.deleteUnitById(id);
         System.out.println(res);
         if (res > 0) {
             return Result.success(CodeMsg.DELETE_SUCCESS);

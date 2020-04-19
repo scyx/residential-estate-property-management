@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyx.residential_estate_property_management.Dao.Property.UnitDao">
+    <select id="getUnitList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Property.Unit">
+        select id,unit_id,house_id,level,has_lift,remark,create_user from unit
+        <choose>
+            <when test="query != null and query != ''">
+                where (unit_id like CONCAT('%',#{query},'%')
+                or house_id like CONCAT('%',#{query},'%')
+                or level like CONCAT('%',#{query},'%')
+                or has_lift like CONCAT('%',#{query},'%')
+                or remark like binary CONCAT('%',#{query},'%')
+                or create_user like binary CONCAT('%',#{query},'%'))
+                and house_id = #{house_id}
+            </when>
+            <otherwise>
+                where house_id = #{house_id}
+            </otherwise>
+        </choose>
+
+    </select>
+</mapper>

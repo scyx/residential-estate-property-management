@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyx.residential_estate_property_management.Dao.Smart_Service.ComplaintAndAdviceDao">
+    <select id="getComplaintAndAdviceList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.SmartService.ComplaintAndAdvice">
+        select id,telephone,type,content,person,house_id,unit_id,room_id,create_date,house_name,status from complaintandadvice where 1=1
+        <choose>
+            <when test="complaint_person != null and complaint_person != ''">
+            and person = #{complaint_person}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="complaint_type != null and complaint_type != ''">
+                and type = #{complaint_type}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

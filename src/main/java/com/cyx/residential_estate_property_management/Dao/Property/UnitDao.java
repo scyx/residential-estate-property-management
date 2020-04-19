@@ -25,11 +25,11 @@ public interface UnitDao {
 
     /**
      * 获得一个楼栋的所有单元
+     * @param query
      * @param house_id
      * @return
      */
-    @Select(SELECT + "where house_id = #{house_id}")
-    List<Unit> getUnitList(Integer house_id);
+    List<Unit> getUnitList(String query,Integer house_id);
 
     /**
      * 根据id获得具体的单元信息
@@ -40,5 +40,5 @@ public interface UnitDao {
     Unit getUnitById(Integer unit_id);
 
     @Delete("delete from unit where id = #{id}")
-    Integer deleteById(Integer id);
+    Integer deleteUnitById(Integer id);
 }

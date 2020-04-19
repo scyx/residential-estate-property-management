@@ -28,4 +28,10 @@ public interface RoomDao {
 
     @Select(SELECT_ALL + "where id = #{id}")
     Room getRoomById(Integer id);
+
+    @Select("select count(*) from room")
+    int getRoomCount();
+
+    @Select("select count(*) from room where status = '未售'")
+    int getRoomNotSaleCount();
 }

@@ -1,7 +1,7 @@
-package com.cyx.residential_estate_property_management.Controller;
+package com.cyx.residential_estate_property_management.Controller.Commom;
 
 import com.cyx.residential_estate_property_management.Result.Result;
-import com.cyx.residential_estate_property_management.Service.WelcomeService;
+import com.cyx.residential_estate_property_management.Service.Common.WelcomeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class WelcomeController {
 
     @ApiOperation("获取首页住户总数，业主总数，房屋总数、空闲数，停车位总数、空闲数")
     @GetMapping("getWelComeNum")
-    public Result<Map<String, Integer>> getWelComeNum() {
+    public Result<Map<String, Object>> getWelComeNum() {
         return welcomeService.getWelComeNum();
     }
 }

@@ -1,6 +1,8 @@
-package com.cyx.residential_estate_property_management.Service;
+package com.cyx.residential_estate_property_management.Service.Common;
 
 import com.cyx.residential_estate_property_management.Dao.Household.HouseHoldDao;
+import com.cyx.residential_estate_property_management.Dao.Property.RoomDao;
+import com.cyx.residential_estate_property_management.Dao.Smart_Service.NoticeDao;
 import com.cyx.residential_estate_property_management.Result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +19,21 @@ import java.util.Map;
 public class WelcomeService {
     @Autowired
     HouseHoldDao houseHoldDao;
-
+    @Autowired
+    RoomDao roomDao;
+    @Autowired
+    NoticeDao noticeDao;
     /**
      * 获取首页的几个人数
      * @return
      */
-    public Result<Map<String, Integer>> getWelComeNum() {
-        Map<String,Integer> map  = new HashMap<>();
+    public Result<Map<String, Object>> getWelComeNum() {
+        Map<String,Object> map  = new HashMap<>();
         map.put("householdNum",houseHoldDao.getHouseholdSum());
         map.put("livePeopleNum",houseHoldDao.getLivePeopleSum());
+        map.put("roomNum",roomDao.getRoomCount());
+        map.put("roomNum_notSale",roomDao.getRoomNotSaleCount());
+        map.put("noticeList",noticeDao.getNoticeList_welcome());
         return Result.success(map);
     }
 }

@@ -1,6 +1,6 @@
-package com.cyx.residential_estate_property_management.Service;
+package com.cyx.residential_estate_property_management.Service.Common;
 
-import com.cyx.residential_estate_property_management.Dao.MenuDao;
+import com.cyx.residential_estate_property_management.Dao.Common.MenuDao;
 import com.cyx.residential_estate_property_management.Vo.MenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
