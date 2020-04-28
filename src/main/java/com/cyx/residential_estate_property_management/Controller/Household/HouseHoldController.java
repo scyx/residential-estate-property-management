@@ -69,7 +69,7 @@ public class HouseHoldController {
         if(houseHold != null){
             return Result.success(houseHold);
         }
-        return Result.error(CodeMsg.GET_HOUSEHOLDBYID_FAIL);
+        return Result.error(CodeMsg.GET_MSG_FAIL);
     }
 
     /**

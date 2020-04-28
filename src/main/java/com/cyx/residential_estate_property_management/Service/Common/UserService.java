@@ -6,13 +6,20 @@ import com.cyx.residential_estate_property_management.Dao.Common.UserDao;
 import com.gitee.sunchenbin.mybatis.actable.manager.common.BaseMysqlCRUDManager;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
-import sun.security.provider.MD5;
+
 
 import javax.servlet.http.Cookie;
 import java.security.MessageDigest;
+
 
 /**
  * @author cyx
@@ -20,6 +27,7 @@ import java.security.MessageDigest;
  */
 @Service
 public class UserService {
+    Logger logger = LoggerFactory.getLogger(UserService.class);
     @Autowired
     BaseMysqlCRUDManager baseMysqlCRUDManager;
     @Autowired
@@ -31,8 +39,21 @@ public class UserService {
      * @return
      */
     public User login(User user) {
-        user.setPassword(MD5(user.getPassword()));
-        return userDao.login(user);
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(
+                user.getUsername(),
+                MD5(user.getPassword())
+        );
+        try {
+            subject.login(usernamePasswordToken);
+        } catch (AuthenticationException e) {
+            logger.error("账号或密码错误");
+            return null;
+        }catch (AuthorizationException e) {
+            logger.error("没有权限");
+            return null;
+        }
+        return user;
     }
 
     /**
@@ -53,8 +74,8 @@ public class UserService {
     }
 
     public Integer resetPasswordByUserId(int id) {
-        String Md5Pswd = MD5("123456");
-        return userDao.resetPasswordByUserId(id,Md5Pswd);
+        String md5Pswd = MD5("123456");
+        return userDao.resetPasswordByUserId(id,md5Pswd);
     }
     public static String MD5(String key) {
         char hexDigits[] = {
@@ -98,5 +119,9 @@ public class UserService {
 
     public Integer save(User user) {
         return baseMysqlCRUDManager.save(user);
+    }
+
+    public int checkUserNameisExist(String userName) {
+        return userDao.checkUserNameisExist(userName);
     }
 }

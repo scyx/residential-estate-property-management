@@ -1,7 +1,5 @@
 package com.cyx.residential_estate_property_management.Controller.User;
 
-import com.cyx.residential_estate_property_management.Bean.Household.HouseHold;
-import com.cyx.residential_estate_property_management.Bean.SmartService.Notice;
 import com.cyx.residential_estate_property_management.Bean.User;
 import com.cyx.residential_estate_property_management.Result.CodeMsg;
 import com.cyx.residential_estate_property_management.Result.Result;
@@ -53,14 +51,14 @@ public class UserController {
             return Result.error(CodeMsg.DELETE_FAIL);
         }
     }
-    @ApiOperation("据id获取具体用户信息")
+    @ApiOperation("根据id获取具体用户信息")
     @GetMapping("getUserById/{id}")
     public Result<User> getUserById(@PathVariable(value = "id") Integer id) {
         User user = userService.getUserById(id);
         if(user != null){
             return Result.success(user);
         }
-        return Result.error(CodeMsg.GET_HOUSEHOLDBYID_FAIL);
+        return Result.error(CodeMsg.GET_MSG_FAIL);
     }
 
     @ApiOperation("根据id修改公告信息")
@@ -71,5 +69,15 @@ public class UserController {
             return Result.success(CodeMsg.SUBMIT_EDIT_SUCCESS);
         }
         return Result.error(CodeMsg.SUBMIT_EDIT_FAIL);
+    }
+
+    @ApiOperation("查询用户名是否存在")
+    @GetMapping("checkUserNameisExist")
+    public Result<Integer> checkUserNameisExist(@RequestParam("userName") String userName) {
+        int res = userService.checkUserNameisExist(userName);
+        if(res == 0){
+            return Result.success(1);
+        }
+        return Result.error(CodeMsg.USERNAME_ALREADY_EXIST);
     }
 }

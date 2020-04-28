@@ -19,10 +19,11 @@ public class CodeMsg {
     public static final CodeMsg DELETE_SUCCESS = new CodeMsg(200,"删除成功！");
     public static final CodeMsg DELETE_FAIL = new CodeMsg(500219,"删除失败！");
     public static final CodeMsg ADD_HOUSEHOLD_FAIL = new CodeMsg(500216,"添加失败！");
-    public static final CodeMsg GET_HOUSEHOLDBYID_FAIL = new CodeMsg(500217,"获取信息失败！");
+    public static final CodeMsg GET_MSG_FAIL = new CodeMsg(500217,"获取信息失败！");
     public static final CodeMsg HOUSEHOLDBYID_NOT_EXIST = new CodeMsg(500218,"住户不存在");
     public static final CodeMsg ADD_SUCCESS = new CodeMsg(200,"添加成功！");
     public static final CodeMsg ADD_FAIL = new CodeMsg(200220,"添加失败！");
+    public static final CodeMsg USERNAME_ALREADY_EXIST = new CodeMsg(500201,"用户名已经存在！");
 
     public CodeMsg(int code, String msg) {
         this.code = code;

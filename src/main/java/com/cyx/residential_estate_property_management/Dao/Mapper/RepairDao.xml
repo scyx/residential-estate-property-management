@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyx.residential_estate_property_management.Dao.Repair.RepairDao">
+    <select id="getRepairList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Repair.Repair">
+        select id,repairer,type,telephone,submit_time,repair_man,status,repair_content,room from repair where 1=1
+        <choose>
+            <when test="repairer != null and repairer != ''">
+                and repairer like CONCAT('%',#{repairer},'%')
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="telephone != null and telephone != ''">
+				and telephone = #{telephone}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="type != null and type != ''">
+                and type = #{type}
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

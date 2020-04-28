@@ -35,4 +35,10 @@ public interface UserDao {
 
     @Select("select * from user where id = #{id}")
     User getUserById(Integer id);
+
+    @Select("select count(*) from user where username = #{userName}")
+    int checkUserNameisExist(String userName);
+
+    @Select("select * from user where username = #{userName}")
+    User getUserByUserName(String userName);
 }

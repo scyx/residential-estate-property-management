@@ -1,6 +1,7 @@
 package com.cyx.residential_estate_property_management.Service.Common;
 
 import com.cyx.residential_estate_property_management.Dao.Household.HouseHoldDao;
+import com.cyx.residential_estate_property_management.Dao.Property.ParkingDao;
 import com.cyx.residential_estate_property_management.Dao.Property.RoomDao;
 import com.cyx.residential_estate_property_management.Dao.Smart_Service.NoticeDao;
 import com.cyx.residential_estate_property_management.Result.Result;
@@ -23,6 +24,8 @@ public class WelcomeService {
     RoomDao roomDao;
     @Autowired
     NoticeDao noticeDao;
+    @Autowired
+    ParkingDao parkingDao;
     /**
      * 获取首页的几个人数
      * @return
@@ -32,6 +35,8 @@ public class WelcomeService {
         map.put("householdNum",houseHoldDao.getHouseholdSum());
         map.put("livePeopleNum",houseHoldDao.getLivePeopleSum());
         map.put("roomNum",roomDao.getRoomCount());
+        map.put("parkingNum",parkingDao.getParkingNum());
+        map.put("parkingNum_notSale",parkingDao.getParkingNum_NotSale());
         map.put("roomNum_notSale",roomDao.getRoomNotSaleCount());
         map.put("noticeList",noticeDao.getNoticeList_welcome());
         return Result.success(map);
