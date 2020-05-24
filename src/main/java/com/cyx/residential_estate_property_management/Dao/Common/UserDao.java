@@ -41,4 +41,9 @@ public interface UserDao {
 
     @Select("select * from user where username = #{userName}")
     User getUserByUserName(String userName);
+
+    @Update("update user set authority_group_id = #{groupId}," +
+            "authority_group_name = (select authority_group_name from authority_group where authority_group.authority_group_id = #{groupId})" +
+            " where id = #{userId}")
+    Integer distributeGroup(Integer userId, Integer groupId);
 }

@@ -10,9 +10,54 @@ import java.util.List;
  * @data 2020/1/7 14:29
  */
 public class MenuVo {
+    private int id;
     private int psid;
-    private String name;
+    private int authority_group_id;
+    private String label;
     private String path;
+    private int ps_level;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAuthority_group_id() {
+        return authority_group_id;
+    }
+
+    public void setAuthority_group_id(int authority_group_id) {
+        this.authority_group_id = authority_group_id;
+    }
+
+
+    public MenuVo(int psid, String label, String path, int ps_level) {
+        this.psid = psid;
+        this.label = label;
+        this.path = path;
+        this.ps_level = ps_level;
+    }
+    private Boolean disabled;
+
+    public Boolean getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public int getPs_level() {
+        return ps_level;
+    }
+
+    public void setPs_level(int ps_level) {
+        this.ps_level = ps_level;
+    }
+
     private List<MenuVo> children;
     public List<MenuVo> getChildren() {
         return children;
@@ -30,18 +75,12 @@ public class MenuVo {
         this.psid = psid;
     }
 
-    public MenuVo(int psid, String name, String path) {
-        this.psid = psid;
-        this.name = name;
-        this.path = path;
+    public String getLabel() {
+        return label;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getPath() {

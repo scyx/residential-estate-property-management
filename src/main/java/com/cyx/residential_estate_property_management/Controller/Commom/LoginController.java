@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author cyx
@@ -25,12 +27,15 @@ public class LoginController {
 
     @ApiOperation("登录")
     @PostMapping("login" )
-    public Result<String> Login(@RequestBody User user, HttpServletResponse httpServletResponse) {
+    public Result<Map<String, Object>> Login(@RequestBody User user, HttpServletResponse httpServletResponse) {
         User currUser = userService.login(user);
+        Map<String,Object> map = new HashMap<>();
         String token = TokenUtil.generateToken();
         if (currUser != null) {
+            map.put("user",currUser);
+            map.put("token",token);
             httpServletResponse.addCookie(userService.generateCookie(token));
-            return Result.success(token);
+            return Result.success(map);
         } else {
             return Result.error(CodeMsg.PASSWORD_ERROR);
         }

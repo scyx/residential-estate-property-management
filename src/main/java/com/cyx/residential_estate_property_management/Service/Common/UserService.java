@@ -1,6 +1,5 @@
 package com.cyx.residential_estate_property_management.Service.Common;
 
-import com.cyx.residential_estate_property_management.Bean.Household.HouseHold;
 import com.cyx.residential_estate_property_management.Bean.User;
 import com.cyx.residential_estate_property_management.Dao.Common.UserDao;
 import com.gitee.sunchenbin.mybatis.actable.manager.common.BaseMysqlCRUDManager;
@@ -53,7 +52,12 @@ public class UserService {
             logger.error("没有权限");
             return null;
         }
-        return user;
+        return getUser(user);
+    }
+
+    private User getUser(User user) {
+        user.setPassword(MD5(user.getPassword()));
+        return userDao.login(user);
     }
 
     /**
@@ -123,5 +127,9 @@ public class UserService {
 
     public int checkUserNameisExist(String userName) {
         return userDao.checkUserNameisExist(userName);
+    }
+
+    public Integer distributeGroup(Integer userId, Integer groupId) {
+        return userDao.distributeGroup(userId,groupId);
     }
 }

@@ -1,12 +1,15 @@
 package com.cyx.residential_estate_property_management.Service.Authority;
 
 import com.cyx.residential_estate_property_management.Bean.Anthority.AuthorityGroup;
+import com.cyx.residential_estate_property_management.Bean.Anthority.Authority_Group_Item;
 import com.cyx.residential_estate_property_management.Dao.Authority.AuthorityGroupDao;
+import com.cyx.residential_estate_property_management.Vo.MenuVo;
 import com.gitee.sunchenbin.mybatis.actable.manager.common.BaseMysqlCRUDManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -53,4 +56,26 @@ public class AuthorityGroupService {
         return authorityGroupDao.deleteAuthorityGroupById(id);
     }
 
+    public Integer addAuthorityByGroupId(String id, List<MenuVo> authorityIdList) {
+        Iterator<MenuVo> iterator = authorityIdList.iterator();
+        while (iterator.hasNext()) {
+            MenuVo menuVo = iterator.next();
+            if (authorityGroupDao.checkAuthorityExists(id,String.valueOf(menuVo.getPsid())) > 0) {
+                iterator.remove();
+            }
+        }
+        return authorityGroupDao.addAuthorityByGroupId(id,authorityIdList);
+    }
+
+    public List<Authority_Group_Item> getAuthorityListByGroupId(String id) {
+        return authorityGroupDao.getAuthorityListByGroupId(id);
+    }
+
+    public List<Authority_Group_Item> getAllAuthorityByGroupId(String id) {
+        return authorityGroupDao.getAllAuthorityByGroupId(id);
+    }
+
+    public Integer deleteItemById(Integer id) {
+        return authorityGroupDao.deleteItemById(id);
+    }
 }

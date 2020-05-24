@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyx.residential_estate_property_management.Dao.Fee.PayDao">
+    <select id="getPayItemList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Fee.PayListItem">
+        select id,fee_type,fee_project,pay_person,pay_cycle,should_pay,actually_pay,pay_time,status from PayListItem where 1=1
+        <choose>
+            <when test="pay_person != null and pay_person != ''">
+                and pay_person like CONCAT('%',#{pay_person},'%')
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="start_time != null and start_time != ''">
+                <![CDATA[ and pay_time > #{start_time} ]]>
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="end_time != null and end_time != ''">
+                <![CDATA[ and pay_time < #{end_time} ]]>
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

@@ -21,7 +21,13 @@ public class Parking {
     // 所属楼栋编号
     @Column(name = "area",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String area;
-    // 所属单元编号
+    // 当前状态
     @Column(name = "status",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String status;
+    // 车位主人
+    @Column(name = "owner",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = true)
+    private String owner;
+    // 车位主人电话
+    @Column(name = "owner_telephone",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = true)
+    private String owner_telephone;
 }

@@ -1,8 +1,12 @@
 package com.cyx.residential_estate_property_management.Dao.Authority;
 
+
 import com.cyx.residential_estate_property_management.Bean.Anthority.AuthorityGroup;
+import com.cyx.residential_estate_property_management.Bean.Anthority.Authority_Group_Item;
+import com.cyx.residential_estate_property_management.Vo.MenuVo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -30,4 +34,18 @@ public interface AuthorityGroupDao {
     @Delete("delete from authority_group where authority_group_id = #{id}")
     Integer deleteAuthorityGroupById(Integer id);
 
+    Integer addAuthorityByGroupId(@Param("id") String id, @Param("list") List<MenuVo> authorityIdList);
+
+    @Select("select * from Authority_Group_Item where authority_group_id = #{id} and ps_level = '1'")
+    List<Authority_Group_Item> getAuthorityListByGroupId(String id);
+
+    @Delete("delete from Authority_Group_Item where id = #{id}")
+    Integer deleteItemById(Integer id);
+
+    @Select("select * from Authority_Group_Item where authority_group_id = #{id}")
+    List<Authority_Group_Item> getAllAuthorityByGroupId(String id);
+
+    //看当前列表是否已经有该权限了
+    @Select("select count(*) from Authority_Group_Item where authority_group_id = #{groupId} and ps_id = #{authorityId}")
+    int checkAuthorityExists(String groupId,String authorityId);
 }

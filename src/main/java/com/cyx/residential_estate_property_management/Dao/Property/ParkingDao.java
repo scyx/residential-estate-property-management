@@ -15,7 +15,7 @@ import java.util.List;
 public interface ParkingDao {
     List<Parking> getParkingList(String parking_number, String status);
 
-    @Select("select id,parking_number,status,area from parking where id = #{id}")
+    @Select("select id,parking_number,status,area,owner,owner_telephone from parking where id = #{id}")
     Parking getParkingById(Integer id);
 
     @Delete("delete from parking where id = #{id}")

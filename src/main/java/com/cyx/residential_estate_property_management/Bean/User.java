@@ -25,4 +25,8 @@ public class User {
     private String telephone;
     @Column(name = "gender",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String gender;
+    @Column(name = "authority_group_id",type = MySqlTypeConstant.INT,length = 50,isNull = true)
+    private int authority_group_id;
+    @Column(name = "authority_group_name",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = true)
+    private String authority_group_name;
 }

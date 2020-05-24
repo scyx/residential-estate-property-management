@@ -61,7 +61,7 @@ public class UserController {
         return Result.error(CodeMsg.GET_MSG_FAIL);
     }
 
-    @ApiOperation("根据id修改公告信息")
+    @ApiOperation("根据id修改用户信息")
     @PutMapping("editUser")
     public Result<CodeMsg> editUnit(@RequestBody User user) {
         Integer res = userService.save(user);
@@ -79,5 +79,16 @@ public class UserController {
             return Result.success(1);
         }
         return Result.error(CodeMsg.USERNAME_ALREADY_EXIST);
+    }
+
+    @ApiOperation("给用户分配权限组")
+    @PostMapping("distributeGroup/{userId}/{groupId}")
+    public Result<Integer> distributeGroup(@PathVariable(value = "userId") Integer userId,
+                                        @PathVariable(value = "groupId") Integer groupId) {
+        Integer res = userService.distributeGroup(userId,groupId);
+        if(res > 0){
+            return Result.success(res);
+        }
+        return Result.error(CodeMsg.GET_MSG_FAIL);
     }
 }

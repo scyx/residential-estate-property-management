@@ -1,7 +1,6 @@
 package com.cyx.residential_estate_property_management.Controller.Fee;
 
 import com.cyx.residential_estate_property_management.Bean.Fee.FeeSettingItem;
-import com.cyx.residential_estate_property_management.Bean.Property.Parking;
 import com.cyx.residential_estate_property_management.Result.CodeMsg;
 import com.cyx.residential_estate_property_management.Result.Result;
 import com.cyx.residential_estate_property_management.Service.Fee.FeeService;
