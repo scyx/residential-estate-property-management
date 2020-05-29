@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class AlipayConfig {
     //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     //    netapp映射的地址，，，根据自己的需要修改
-    private static String neturl = "http://23iswn.natappfree.cc";
+    private static String neturl = "http://59.110.226.136:8888";
 
     // 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号 按照我文章图上的信息填写
     public static String app_id = "2016102400751451";
@@ -26,7 +26,7 @@ public class AlipayConfig {
     public static String notify_url = neturl+"/alipay.do";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，其实就是你的一个支付完成后返回的页面URL
-    public static String return_url = neturl+"/PaymentList";
+    public static String return_url = "http://59.110.226.136:8080/#/PaymentList";
 
     // 签名方式
     public static String sign_type = "RSA2";

@@ -15,23 +15,32 @@ import java.util.Date;
 @Data
 @Table(name = "repair")
 public class Repair {
+    // 修理单id
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)
     private int id;
+    // 报修人
     @Column(name = "repairer",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String repairer;
+    // 电话
     @Column(name = "telephone",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String telephone;
+    // 类型
     @Column(name = "type",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String type;
+    // 房屋编号
     @Column(name = "room",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false)
     private String room;
+    // 提交日期
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "submit_time",type = MySqlTypeConstant.DATETIME,isNull = false)
     private Date submit_time;
+    // 修理师傅
     @Column(name = "repair_man",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = true)
     private String repair_man;
+    // 状态
     @Column(name = "status",type = MySqlTypeConstant.VARCHAR,length = 50,isNull = false,defaultValue = "未处理")
     private String status;
+    // 保修内容
     @Column(name = "repair_content",type = MySqlTypeConstant.LONGTEXT,isNull = false)
     private String repair_content;
 }

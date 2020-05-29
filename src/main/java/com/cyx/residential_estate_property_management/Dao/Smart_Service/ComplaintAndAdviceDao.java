@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Mapper
 public interface ComplaintAndAdviceDao {
-    @Insert("insert into ComplaintAndAdvice " +
+    @Insert("insert into complaintandadvice " +
             "(telephone,type,content,person,house_id,house_name,unit_id,room_id,create_date)" +
             "values (#{c.telephone},#{c.type},#{c.content},#{c.person}," +
             "#{c.house_id},#{c.house_name},#{c.unit_id},#{c.room_id},current_timestamp)")
@@ -20,9 +20,9 @@ public interface ComplaintAndAdviceDao {
 
     List<ComplaintAndAdvice> getComplaintAndAdviceList(String complaint_person,String complaint_type);
 
-    @Delete("delete from ComplaintAndAdvice where id = #{id}")
+    @Delete("delete from complaintandadvice where id = #{id}")
     Integer deleteComplaintById(Integer id);
 
-    @Select("select * from ComplaintAndAdvice where id = #{id}")
+    @Select("select * from complaintandadvice where id = #{id}")
     ComplaintAndAdvice getComplaintById(Integer id);
 }

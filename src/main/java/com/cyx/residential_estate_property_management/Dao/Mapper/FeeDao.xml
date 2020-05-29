@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cyx.residential_estate_property_management.Dao.Fee.FeeDao">
     <select id="getFeeSettingItemList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Fee.FeeSettingItem">
-        select id,fee_type,fee_project,fee_sign,start_time,end_time,calculation_formula,unit_price,add_cost from FeeSettingItem where 1=1
+        select id,fee_type,fee_project,fee_sign,start_time,end_time,calculation_formula,unit_price,add_cost from feesettingitem where 1=1
         <choose>
             <when test="feeProject != null and feeProject != ''">
                 and fee_project like CONCAT('%',#{feeProject},'%')

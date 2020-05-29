@@ -2,6 +2,7 @@ package com.cyx.residential_estate_property_management.Bean.Pay;
 
 /**
  * @author cyx
+ * 阿里订单实体
  * @data 2020/5/14 14:36
  */
 public class AlipayBean {

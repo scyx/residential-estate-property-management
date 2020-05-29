@@ -10,10 +10,11 @@ import java.util.Date;
 
 /**
  * @author cyx
+ * 支付列表项
  * @data 2020/4/28 16:10
  */
 @Data
-@Table(name = "PayListItem")
+@Table(name = "paylistitem")
 public class PayListItem {
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)
     private int id;

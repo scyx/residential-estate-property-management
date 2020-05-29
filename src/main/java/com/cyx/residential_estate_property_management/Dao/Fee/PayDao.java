@@ -17,6 +17,6 @@ public interface PayDao {
 
     public List<PayListItem> getPayItemList(String pay_person, String start_time, String end_time) ;
 
-    @Update("update PayListItem set status= '已付款' where id = #{id}")
+    @Update("update paylistitem set status= '已付款' where id = #{id}")
     void updateStatusById(String id);
 }

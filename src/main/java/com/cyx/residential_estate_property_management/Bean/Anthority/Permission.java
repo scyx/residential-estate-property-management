@@ -11,13 +11,19 @@ import java.util.List;
  */
 @Data
 public class Permission {
+    // 主键
     private int ps_id;
+    // 权限名称
     private String ps_name;
+    // 父权限id
     private int ps_pid;
     private String ps_c;
     private String ps_a;
+    // 登记
     private int ps_level;
+    // 孩子权限
     private List<Permission> children;
+    // 路径
     private String ps_api_path;
 
 }

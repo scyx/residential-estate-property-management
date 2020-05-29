@@ -17,9 +17,9 @@ import java.util.List;
 public interface FeeDao {
     List<FeeSettingItem> getFeeSettingItemList(String feeProject, String feeType);
 
-    @Delete("delete from FeeSettingItem where id = #{id}")
+    @Delete("delete from feesettingitem where id = #{id}")
     int deleteFeeSettingItemById(Integer id);
 
-    @Select("select * from FeeSettingItem where id = #{id}")
+    @Select("select * from feesettingitem where id = #{id}")
     FeeSettingItem getFeeSettingItemById(Integer id);
 }

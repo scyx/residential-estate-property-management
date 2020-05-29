@@ -11,7 +11,7 @@ import lombok.Data;
  * 房屋实体
  */
 @Data
-@Table(name = "Room")
+@Table(name = "room")
 public class Room {
     // 主键
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)

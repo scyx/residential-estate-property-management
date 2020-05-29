@@ -14,7 +14,7 @@ import java.util.Date;
  * @data 2020/3/1 14:55
  */
 @Data
-@Table(name = "House")
+@Table(name = "house")
 public class House {
     /**
      * 楼栋编号

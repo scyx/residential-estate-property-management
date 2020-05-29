@@ -11,7 +11,7 @@ import lombok.Data;
  * 单元 实体
  */
 @Data
-@Table(name = "Unit")
+@Table(name = "unit")
 public class Unit {
     /**
      * 主键

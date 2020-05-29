@@ -4,16 +4,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.Date;
 
 /**
  * @author cyx
+ * 公告实体
  * @data 2020/4/13 13:24
  */
 @Data
-@Table(name = "Notice")
+@Table(name = "notice")
 public class Notice {
     // 主键
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)
