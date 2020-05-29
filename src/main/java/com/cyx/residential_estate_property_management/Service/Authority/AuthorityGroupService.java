@@ -56,6 +56,12 @@ public class AuthorityGroupService {
         return authorityGroupDao.deleteAuthorityGroupById(id);
     }
 
+    /**
+     * 给权限组添加权限
+     * @param id
+     * @param authorityIdList
+     * @return
+     */
     public Integer addAuthorityByGroupId(String id, List<MenuVo> authorityIdList) {
         Iterator<MenuVo> iterator = authorityIdList.iterator();
         while (iterator.hasNext()) {
@@ -67,14 +73,29 @@ public class AuthorityGroupService {
         return authorityGroupDao.addAuthorityByGroupId(id,authorityIdList);
     }
 
+    /**
+     * 获取权限组中的所有权限
+     * @param id
+     * @return
+     */
     public List<Authority_Group_Item> getAuthorityListByGroupId(String id) {
         return authorityGroupDao.getAuthorityListByGroupId(id);
     }
 
+    /**
+     * 获取权限组
+     * @param id
+     * @return
+     */
     public List<Authority_Group_Item> getAllAuthorityByGroupId(String id) {
         return authorityGroupDao.getAllAuthorityByGroupId(id);
     }
 
+    /**
+     * 删除权限组中的权限
+     * @param id
+     * @return
+     */
     public Integer deleteItemById(Integer id) {
         return authorityGroupDao.deleteItemById(id);
     }

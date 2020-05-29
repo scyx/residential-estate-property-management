@@ -43,14 +43,29 @@ public class NoticeService {
         return noticePageInfo;
     }
 
+    /**
+     * 根据id获取公告信息
+     * @param id
+     * @return
+     */
     public Notice getNoticeById(Integer id) {
         return noticeDao.getNoticeById(id);
     }
 
+    /**
+     * 保存公告
+     * @param notice
+     * @return
+     */
     public Integer save(Notice notice) {
         return baseMysqlCRUDManager.save(notice);
     }
 
+    /**
+     * 删除公告
+     * @param id
+     * @return
+     */
     public Integer deleteNoticeById(Integer id) {
         return noticeDao.deleteNoticeById(id);
     }

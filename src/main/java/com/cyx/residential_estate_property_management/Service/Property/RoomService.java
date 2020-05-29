@@ -44,7 +44,7 @@ public class RoomService {
     }
 
     public Integer deleteRoomById(Integer id) {
-        return roomDao.deleteHouseById(id);
+        return roomDao.deleteRoomById(id);
     }
 
     public Room getRoomById(Integer id) {

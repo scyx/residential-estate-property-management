@@ -34,14 +34,35 @@ public interface AuthorityGroupDao {
     @Delete("delete from authority_group where authority_group_id = #{id}")
     Integer deleteAuthorityGroupById(Integer id);
 
+    /**
+     * 给权限组添加权限
+     * @param id 权限组id
+     * @param authorityIdList 权限列表
+     * @return
+     */
     Integer addAuthorityByGroupId(@Param("id") String id, @Param("list") List<MenuVo> authorityIdList);
 
+    /**
+     * 获取权限组的权限
+     * @param id 权限组id
+     * @return
+     */
     @Select("select * from authority_group_item where authority_group_id = #{id} and ps_level = '1'")
     List<Authority_Group_Item> getAuthorityListByGroupId(String id);
 
+    /**
+     * 从权限组中删除权限
+     * @param id
+     * @return
+     */
     @Delete("delete from authority_group_item where id = #{id}")
     Integer deleteItemById(Integer id);
 
+    /**
+     * 获取权限组中所有权限
+     * @param id
+     * @return
+     */
     @Select("select * from authority_group_item where authority_group_id = #{id}")
     List<Authority_Group_Item> getAllAuthorityByGroupId(String id);
 

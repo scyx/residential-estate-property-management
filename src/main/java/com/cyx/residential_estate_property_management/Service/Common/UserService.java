@@ -72,11 +72,23 @@ public class UserService {
         return cookie;
     }
 
+    /**
+     * 获取用户列表
+     * @param query
+     * @param pageNum 页数
+     * @param pageSize 页大小
+     * @return
+     */
     public PageInfo<User> getUserList(String query, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         return new PageInfo<>(userDao.getUserList(query));
     }
 
+    /**
+     * 重置密码
+     * @param id
+     * @return
+     */
     public Integer resetPasswordByUserId(int id) {
         String md5Pswd = MD5("123456");
         return userDao.resetPasswordByUserId(id,md5Pswd);

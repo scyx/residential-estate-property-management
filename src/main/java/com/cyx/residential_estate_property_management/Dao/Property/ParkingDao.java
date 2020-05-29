@@ -13,17 +13,41 @@ import java.util.List;
  */
 @Mapper
 public interface ParkingDao {
+    /**
+     * 查看停车位列表
+     * @param parking_number
+     * @param status
+     * @return
+     */
     List<Parking> getParkingList(String parking_number, String status);
 
+    /**
+     * 获取停车位信息
+     * @param id
+     * @return
+     */
     @Select("select id,parking_number,status,area,owner,owner_telephone from parking where id = #{id}")
     Parking getParkingById(Integer id);
 
+    /**
+     * 删除停车位
+     * @param id
+     * @return
+     */
     @Delete("delete from parking where id = #{id}")
     int deleteParkingById(Integer id);
 
+    /**
+     * 获取所有车位数量
+     * @return
+     */
     @Select("select count(*) from parking")
     int getParkingNum();
 
+    /**
+     * 获取空闲车位数量
+     * @return
+     */
     @Select("select count(*) from parking where status = '空闲'")
     int getParkingNum_NotSale();
 }

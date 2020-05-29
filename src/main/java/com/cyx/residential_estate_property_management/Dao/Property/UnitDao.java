@@ -39,6 +39,11 @@ public interface UnitDao {
     @Select(SELECT + "where id = #{unit_id}")
     Unit getUnitById(Integer unit_id);
 
+    /**
+     * 删除单元
+     * @param id
+     * @return
+     */
     @Delete("delete from unit where id = #{id}")
     Integer deleteUnitById(Integer id);
 }

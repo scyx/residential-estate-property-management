@@ -26,12 +26,26 @@ public interface NoticeDao {
      */
     List<Notice> getNoticeList(String notice_title, String notice_type);
 
+    /**
+     * 查看公告信息
+     * @param id
+     * @return
+     */
     @Select("select id,title,publish_time,type,content from notice where id = #{id}")
     Notice getNoticeById(Integer id);
 
+    /**
+     * 删除公告
+     * @param id
+     * @return
+     */
     @Delete("delete from notice where id = #{id}")
     Integer deleteNoticeById(Integer id);
 
+    /**
+     * 获取公告数量
+     * @return
+     */
     @Select("select id,title,publish_time,type,content from notice order by publish_time DESC limit 5")
     List<Notice> getNoticeList_welcome();
 }

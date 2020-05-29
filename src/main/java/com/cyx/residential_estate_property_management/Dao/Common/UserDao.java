@@ -24,24 +24,56 @@ public interface UserDao {
     @Select("select * from" + table + "where username = #{username} and password = #{password}")
     public User login(User user);
 
+    /**
+     * 获取用户列表
+     * @param query
+     * @return
+     */
     @Select("select * from user")
     List<User> getUserList(String query);
 
+    /**
+     * 重置用户密码
+     * @param id
+     * @param pswd
+     * @return
+     */
     @Update("update user set password = #{pswd} where id = #{id}")
     Integer resetPasswordByUserId(int id,String pswd);
 
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
     @Delete("delete from user where id = #{id}")
     Integer deleteUserById(Integer id);
 
+    /**
+     * 获取单个用户信息
+     * @param id 用户id
+     * @return
+     */
     @Select("select * from user where id = #{id}")
     User getUserById(Integer id);
 
+    /**
+     * 检查用户名是否存在
+     * @param userName
+     * @return
+     */
     @Select("select count(*) from user where username = #{userName}")
     int checkUserNameisExist(String userName);
 
     @Select("select * from user where username = #{userName}")
     User getUserByUserName(String userName);
 
+    /**
+     * 更新用户的权限组
+     * @param userId
+     * @param groupId
+     * @return
+     */
     @Update("update user set authority_group_id = #{groupId}," +
             "authority_group_name = (select authority_group_name from authority_group where authority_group.authority_group_id = #{groupId})" +
             " where id = #{userId}")

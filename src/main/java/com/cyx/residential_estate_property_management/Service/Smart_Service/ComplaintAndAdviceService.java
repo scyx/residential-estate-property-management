@@ -25,18 +25,38 @@ public class ComplaintAndAdviceService {
         return new PageInfo<>(complaintAndAdviceDao.getComplaintAndAdviceList(complaint_person,complaint_type));
     }
 
+    /**
+     * 添加投诉建议
+     * @param complaintAndAdvice
+     * @return
+     */
     public int add(ComplaintAndAdvice complaintAndAdvice) {
         return complaintAndAdviceDao.addComplaintAndAdvice(complaintAndAdvice);
     }
 
+    /**
+     * 删除投诉
+     * @param id
+     * @return
+     */
     public Integer deleteComplaintById(Integer id) {
         return complaintAndAdviceDao.deleteComplaintById(id);
     }
 
+    /**
+     * 获取投诉建议信息
+     * @param id
+     * @return
+     */
     public ComplaintAndAdvice getComplaintById(Integer id) {
         return complaintAndAdviceDao.getComplaintById(id);
     }
 
+    /**
+     * 保存投诉建议
+     * @param complaintAndAdvice
+     * @return
+     */
     public Integer saveComplaintAndAdvice(ComplaintAndAdvice complaintAndAdvice) {
         return baseMysqlCRUDManager.save(complaintAndAdvice);
     }

@@ -3,6 +3,7 @@ package com.cyx.residential_estate_property_management.Result;
 /**
  * @author cyx
  * @data 2020/1/6 11:25
+ * 返回给前端的信息
  */
 public class CodeMsg {
     private int code;

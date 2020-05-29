@@ -19,11 +19,25 @@ public class RepairService {
         return repairDao.addRepair(repair);
     }
 
+    /**
+     * 获取报修单列表
+     * @param repairer
+     * @param telephone
+     * @param type
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     public PageInfo<Repair> getRepairList(String repairer, String telephone, String type, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         return new PageInfo<>(repairDao.getRepairList(repairer,telephone,type));
     }
 
+    /**
+     * 获取报修单信息
+     * @param id
+     * @return
+     */
     public Repair getRepairById(Integer id) {
         return repairDao.getRepairById(id);
     }
