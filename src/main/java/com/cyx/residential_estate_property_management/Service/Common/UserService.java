@@ -144,4 +144,12 @@ public class UserService {
     public Integer distributeGroup(Integer userId, Integer groupId) {
         return userDao.distributeGroup(userId,groupId);
     }
+
+    public User validOldPassword(String userName, String oldPassword) {
+        return userDao.validOldPassword(userName,MD5(oldPassword));
+    }
+
+    public int changePassword(String userName, String newPassword) {
+        return userDao.changePassword(userName,MD5(newPassword));
+    }
 }

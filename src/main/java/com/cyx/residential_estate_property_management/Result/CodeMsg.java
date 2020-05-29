@@ -25,6 +25,7 @@ public class CodeMsg {
     public static final CodeMsg ADD_SUCCESS = new CodeMsg(200,"添加成功！");
     public static final CodeMsg ADD_FAIL = new CodeMsg(200220,"添加失败！");
     public static final CodeMsg USERNAME_ALREADY_EXIST = new CodeMsg(500201,"用户名已经存在！");
+    public static final CodeMsg OLDPASSWORD_NOT_RIGHT = new CodeMsg(500202,"旧密码错误");
 
     public CodeMsg(int code, String msg) {
         this.code = code;

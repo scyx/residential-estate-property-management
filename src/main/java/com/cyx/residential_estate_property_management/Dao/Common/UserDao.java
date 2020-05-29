@@ -78,4 +78,10 @@ public interface UserDao {
             "authority_group_name = (select authority_group_name from authority_group where authority_group.authority_group_id = #{groupId})" +
             " where id = #{userId}")
     Integer distributeGroup(Integer userId, Integer groupId);
+
+    @Select("select * from user where username = #{userName} and password = #{oldPassword}")
+    User validOldPassword(String userName, String oldPassword);
+
+    @Update("update user set password=#{newPassword} where username = #{userName} ")
+    int changePassword(String userName, String newPassword);
 }

@@ -91,4 +91,26 @@ public class UserController {
         }
         return Result.error(CodeMsg.GET_MSG_FAIL);
     }
+
+    @ApiOperation("验证旧密码对错")
+    @GetMapping("validOldPassword")
+    public Result<Integer> validOldPassword(@RequestParam("userName") String userName,
+                                            @RequestParam("oldPassword") String oldPassword) {
+        User user = userService.validOldPassword(userName,oldPassword);
+        if(user != null){
+            return Result.success(1);
+        }
+        return Result.error(CodeMsg.OLDPASSWORD_NOT_RIGHT);
+    }
+
+    @ApiOperation("修改密码")
+    @PutMapping("changePassword")
+    public Result<Integer> changePassword(@RequestParam("userName") String userName,
+                                            @RequestParam("newPassword") String newPassword) {
+        int res = userService.changePassword(userName,newPassword);
+        if(res > 0){
+            return Result.success(1);
+        }
+        return Result.error(CodeMsg.SUBMIT_EDIT_FAIL);
+    }
 }
