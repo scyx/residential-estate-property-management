@@ -11,7 +11,7 @@ import lombok.Data;
  * @data 2020/4/20 16:48
  */
 @Data
-@Table(name = "parking")
+@Table(name = "Parking")
 public class Parking {
     // 主键
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)

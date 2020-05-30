@@ -14,7 +14,7 @@ import java.util.Date;
  * 住户实体
  */
 
-@Table(name = "household")
+@Table(name = "HouseHold")
 @Data
 public class HouseHold {
     // 主键

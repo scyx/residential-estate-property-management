@@ -40,7 +40,7 @@ public class HouseService implements IgetList {
     }
 
     /**
-     * 查询楼栋列表
+     * 查询房屋列表
      * @param pageNum
      * @param pageSize
      * @param query

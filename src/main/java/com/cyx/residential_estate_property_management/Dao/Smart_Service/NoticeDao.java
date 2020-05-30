@@ -16,7 +16,7 @@ public interface NoticeDao {
      * @param notice
      * @return
      */
-    @Insert("insert into notice (title,type,publish_time,content) " +
+    @Insert("insert into Notice (title,type,publish_time,content) " +
             "values(#{notice.title},#{notice.type},current_timestamp,#{notice.content})")
     int save(@Param("notice") Notice notice);
     /**
@@ -31,7 +31,7 @@ public interface NoticeDao {
      * @param id
      * @return
      */
-    @Select("select id,title,publish_time,type,content from notice where id = #{id}")
+    @Select("select id,title,publish_time,type,content from Notice where id = #{id}")
     Notice getNoticeById(Integer id);
 
     /**
@@ -39,13 +39,13 @@ public interface NoticeDao {
      * @param id
      * @return
      */
-    @Delete("delete from notice where id = #{id}")
+    @Delete("delete from Notice where id = #{id}")
     Integer deleteNoticeById(Integer id);
 
     /**
      * 获取公告数量
      * @return
      */
-    @Select("select id,title,publish_time,type,content from notice order by publish_time DESC limit 5")
+    @Select("select id,title,publish_time,type,content from Notice order by publish_time DESC limit 5")
     List<Notice> getNoticeList_welcome();
 }

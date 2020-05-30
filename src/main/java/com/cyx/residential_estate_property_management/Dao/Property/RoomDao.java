@@ -12,14 +12,14 @@ import java.util.List;
 @Mapper
 public interface RoomDao {
     String SELECT_ALL = "select id,room_id,unit_id,house_id,status,hall_num,room_num,remark,area,floor_num " +
-            "from room ";
+            "from Room ";
 
     /**
      * 保存房屋
      * @param room
      * @return
      */
-    @Insert("insert into room (room_id,unit_id,house_id,status,hall_num,room_num,remark,area,floor_num) " +
+    @Insert("insert into Room (room_id,unit_id,house_id,status,hall_num,room_num,remark,area,floor_num) " +
             "values(#{room.room_id},#{room.unit_id},#{room.house_id},#{room.status},#{room.hall_num},#{room.room_num},#{room.remark},#{room.area},#{room.floor_num})")
     int save(@Param("room") Room room);
 
@@ -39,7 +39,7 @@ public interface RoomDao {
      * @param id
      * @return
      */
-    @Delete("delete from room where id = #{id}")
+    @Delete("delete from Room where id = #{id}")
     Integer deleteRoomById(Integer id);
 
     /**
@@ -54,13 +54,13 @@ public interface RoomDao {
      * 获取所有房屋数量
      * @return
      */
-    @Select("select count(*) from room")
+    @Select("select count(*) from Room")
     int getRoomCount();
 
     /**
      * 获取未售房屋数量
      * @return
      */
-    @Select("select count(*) from room where status = '未售'")
+    @Select("select count(*) from Room where status = '未售'")
     int getRoomNotSaleCount();
 }

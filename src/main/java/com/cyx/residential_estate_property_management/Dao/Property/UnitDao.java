@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Mapper
 public interface UnitDao {
-    String SELECT = "select id,unit_id,house_id,level,has_lift,remark,create_user from unit ";
+    String SELECT = "select id,unit_id,house_id,level,has_lift,remark,create_user from Unit ";
 
     /**
      * 给楼栋添加单元
@@ -19,7 +19,7 @@ public interface UnitDao {
      * @param unit
      * @return
      */
-    @Insert("insert into unit (unit_id,house_id,level,has_lift,remark,create_user) values" +
+    @Insert("insert into Unit (unit_id,house_id,level,has_lift,remark,create_user) values" +
             "(#{unit.unit_id},#{house_id},#{unit.level},#{unit.has_lift},#{unit.remark},#{unit.create_user})")
     int addUnit(@Param("house_id") Integer house_id, @Param("unit") Unit unit);
 
@@ -44,6 +44,6 @@ public interface UnitDao {
      * @param id
      * @return
      */
-    @Delete("delete from unit where id = #{id}")
+    @Delete("delete from Unit where id = #{id}")
     Integer deleteUnitById(Integer id);
 }

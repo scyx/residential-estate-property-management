@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cyx.residential_estate_property_management.Dao.Smart_Service.NoticeDao">
     <select id="getNoticeList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.SmartService.Notice">
-        select id,title,type,publish_time,content from notice where 1=1
+        select id,title,type,publish_time,content from Notice where 1=1
         <choose>
             <when test="notice_title != null and notice_title != ''">
                 and title = #{notice_title}

@@ -23,7 +23,7 @@ public interface AuthorityGroupDao {
      * 获得权限组列表
      * @return
      */
-    @Select("select * from authority_group")
+    @Select("select * from Authority_Group")
     List<AuthorityGroup> getAuthorityGroupList();
 
     /**
@@ -31,7 +31,7 @@ public interface AuthorityGroupDao {
      * @param id
      * @return
      */
-    @Delete("delete from authority_group where authority_group_id = #{id}")
+    @Delete("delete from Authority_Group where authority_group_id = #{id}")
     Integer deleteAuthorityGroupById(Integer id);
 
     /**
@@ -47,7 +47,7 @@ public interface AuthorityGroupDao {
      * @param id 权限组id
      * @return
      */
-    @Select("select * from authority_group_item where authority_group_id = #{id} and ps_level = '1'")
+    @Select("select * from Authority_Group_Item where authority_group_id = #{id} and ps_level = '1'")
     List<Authority_Group_Item> getAuthorityListByGroupId(String id);
 
     /**
@@ -55,7 +55,7 @@ public interface AuthorityGroupDao {
      * @param id
      * @return
      */
-    @Delete("delete from authority_group_item where id = #{id}")
+    @Delete("delete from Authority_Group_Item where id = #{id}")
     Integer deleteItemById(Integer id);
 
     /**
@@ -63,10 +63,10 @@ public interface AuthorityGroupDao {
      * @param id
      * @return
      */
-    @Select("select * from authority_group_item where authority_group_id = #{id}")
+    @Select("select * from Authority_Group_Item where authority_group_id = #{id}")
     List<Authority_Group_Item> getAllAuthorityByGroupId(String id);
 
     //看当前列表是否已经有该权限了
-    @Select("select count(*) from authority_hroup_item where authority_group_id = #{groupId} and ps_id = #{authorityId}")
+    @Select("select count(*) from Authority_Group_Item where authority_group_id = #{groupId} and ps_id = #{authorityId}")
     int checkAuthorityExists(String groupId,String authorityId);
 }

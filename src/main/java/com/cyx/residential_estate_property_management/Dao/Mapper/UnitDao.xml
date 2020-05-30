@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cyx.residential_estate_property_management.Dao.Property.UnitDao">
     <select id="getUnitList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Property.Unit">
-        select id,unit_id,house_id,level,has_lift,remark,create_user from unit
+        select id,unit_id,house_id,level,has_lift,remark,create_user from Unit
         <choose>
             <when test="query != null and query != ''">
                 where (unit_id like CONCAT('%',#{query},'%')

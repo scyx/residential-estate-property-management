@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface UserDao {
-    String table = " user ";
+    String table = " User ";
 
     /**
      * 登录
@@ -29,7 +29,7 @@ public interface UserDao {
      * @param query
      * @return
      */
-    @Select("select * from user")
+    @Select("select * from User")
     List<User> getUserList(String query);
 
     /**
@@ -38,7 +38,7 @@ public interface UserDao {
      * @param pswd
      * @return
      */
-    @Update("update user set password = #{pswd} where id = #{id}")
+    @Update("update User set password = #{pswd} where id = #{id}")
     Integer resetPasswordByUserId(int id,String pswd);
 
     /**
@@ -46,7 +46,7 @@ public interface UserDao {
      * @param id
      * @return
      */
-    @Delete("delete from user where id = #{id}")
+    @Delete("delete from User where id = #{id}")
     Integer deleteUserById(Integer id);
 
     /**
@@ -54,7 +54,7 @@ public interface UserDao {
      * @param id 用户id
      * @return
      */
-    @Select("select * from user where id = #{id}")
+    @Select("select * from User where id = #{id}")
     User getUserById(Integer id);
 
     /**
@@ -62,10 +62,10 @@ public interface UserDao {
      * @param userName
      * @return
      */
-    @Select("select count(*) from user where username = #{userName}")
+    @Select("select count(*) from User where username = #{userName}")
     int checkUserNameisExist(String userName);
 
-    @Select("select * from user where username = #{userName}")
+    @Select("select * from User where username = #{userName}")
     User getUserByUserName(String userName);
 
     /**
@@ -74,14 +74,14 @@ public interface UserDao {
      * @param groupId
      * @return
      */
-    @Update("update user set authority_group_id = #{groupId}," +
+    @Update("update User set authority_group_id = #{groupId}," +
             "authority_group_name = (select authority_group_name from authority_group where authority_group.authority_group_id = #{groupId})" +
             " where id = #{userId}")
     Integer distributeGroup(Integer userId, Integer groupId);
 
-    @Select("select * from user where username = #{userName} and password = #{oldPassword}")
+    @Select("select * from User where username = #{userName} and password = #{oldPassword}")
     User validOldPassword(String userName, String oldPassword);
 
-    @Update("update user set password=#{newPassword} where username = #{userName} ")
+    @Update("update User set password=#{newPassword} where username = #{userName} ")
     int changePassword(String userName, String newPassword);
 }

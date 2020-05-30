@@ -14,7 +14,7 @@ import java.util.Date;
  * @data 2020/4/19 14:41
  */
 @Data
-@Table(name = "complaintandadvice")
+@Table(name = "ComplaintAndAdvice")
 public class ComplaintAndAdvice {
     // 主键
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)

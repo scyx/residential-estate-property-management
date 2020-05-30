@@ -29,7 +29,7 @@ public interface FeeDao {
      * @param id
      * @return
      */
-    @Delete("delete from feesettingitem where id = #{id}")
+    @Delete("delete from FeeSettingItem where id = #{id}")
     int deleteFeeSettingItemById(Integer id);
 
     /**
@@ -37,6 +37,6 @@ public interface FeeDao {
      * @param id
      * @return
      */
-    @Select("select * from feesettingitem where id = #{id}")
+    @Select("select * from FeeSettingItem where id = #{id}")
     FeeSettingItem getFeeSettingItemById(Integer id);
 }

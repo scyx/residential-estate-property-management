@@ -27,6 +27,6 @@ public interface PayDao {
      * 支付宝支付成功回调 更新订单状态
      * @param id
      */
-    @Update("update paylistitem set status= '已付款' where id = #{id}")
+    @Update("update PayListItem set status= '已付款' where id = #{id}")
     void updateStatusById(String id);
 }

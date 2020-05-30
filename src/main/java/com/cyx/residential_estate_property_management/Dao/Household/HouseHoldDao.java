@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface HouseHoldDao {
 
-    String select_all = "select *,ROUND(DATEDIFF(CURDATE(), birthday)/365.2422) AS age from household ";
+    String select_all = "select *,ROUND(DATEDIFF(CURDATE(), birthday)/365.2422) AS age from HouseHold ";
 
     /**
      * 获取住户列表
@@ -83,7 +83,7 @@ public interface HouseHoldDao {
      * 获取业主数量
      * @return
      */
-    @Select("select count(*) from household where is_f ='是'")
+    @Select("select count(*) from HouseHold where is_f ='是'")
     Integer getHouseholdSum();
 
     /**
@@ -92,7 +92,7 @@ public interface HouseHoldDao {
      * @param houseHold
      * @return
      */
-    @Insert("insert into household (household_name,telephone,gender,address,birthday,f_id,is_f,create_user) " +
+    @Insert("insert into HouseHold (household_name,telephone,gender,address,birthday,f_id,is_f,create_user) " +
             "values (#{household.household_name},#{household.telephone},#{household.gender},#{household.address},#{household.birthday},#{id},'否',#{household.create_user})")
     Integer addMemberByHouseHoldId(@Param("id") Integer id, @Param("household") HouseHold houseHold);
 
@@ -101,7 +101,7 @@ public interface HouseHoldDao {
      * 获取所有住户的数量
      * @return
      */
-    @Select("select count(*) from household")
+    @Select("select count(*) from HouseHold")
     Integer getLivePeopleSum();
 
 }

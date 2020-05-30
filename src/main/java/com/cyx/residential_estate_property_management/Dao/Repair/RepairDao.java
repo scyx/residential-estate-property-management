@@ -19,7 +19,7 @@ public interface RepairDao {
      * @param reparir
      * @return
      */
-    @Insert("insert into repair (repairer,telephone,type,submit_time,room,repair_content) " +
+    @Insert("insert into Repair (repairer,telephone,type,submit_time,room,repair_content) " +
             "values (#{r.repairer},#{r.telephone},#{r.type},current_timestamp,#{r.room},#{r.repair_content})")
     int addRepair(@Param("r") Repair reparir);
 
@@ -37,6 +37,6 @@ public interface RepairDao {
      * @param id
      * @return
      */
-    @Select("select * from repair where id = #{id}")
+    @Select("select * from Repair where id = #{id}")
     Repair getRepairById(Integer id);
 }

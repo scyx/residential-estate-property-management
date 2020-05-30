@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cyx.residential_estate_property_management.Dao.Fee.PayDao">
     <select id="getPayItemList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Fee.PayListItem">
-        select id,fee_type,fee_project,pay_person,pay_cycle,should_pay,actually_pay,pay_time,status from paylistitem where 1=1
+        select id,fee_type,fee_project,pay_person,pay_cycle,should_pay,actually_pay,pay_time,status from PayListItem where 1=1
         <choose>
             <when test="pay_person != null and pay_person != ''">
                 and pay_person like CONCAT('%',#{pay_person},'%')

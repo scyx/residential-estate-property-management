@@ -11,13 +11,13 @@ import java.util.List;
  */
 @Mapper
 public interface HouseDao {
-    String select_all = "select house_id,house_name,remark,create_date,create_user from house ";
+    String select_all = "select house_id,house_name,remark,create_date,create_user from House ";
     /**
      * 添加楼栋
      * @param house
      * @return
      */
-    @Insert("insert into house (house_name,remark,create_date,create_user) values (#{house.house_name},#{house.remark},current_timestamp,#{house.create_user})")
+    @Insert("insert into House (house_name,remark,create_date,create_user) values (#{house.house_name},#{house.remark},current_timestamp,#{house.create_user})")
     int addHouse(@Param("house") House house);
 
     /**
@@ -43,12 +43,12 @@ public interface HouseDao {
      * @param id
      * @return
      */
-    @Select("select house_id,house_name,remark,create_user,create_date from house where house_id = #{id}")
+    @Select("select house_id,house_name,remark,create_user,create_date from House where house_id = #{id}")
     House getHouseById(Integer id);
 
     /**
      * 根据id删除楼栋
      */
-    @Delete("delete from house where house_id = #{id}")
+    @Delete("delete from House where house_id = #{id}")
     Integer deleteHouseById(Integer id);
 }

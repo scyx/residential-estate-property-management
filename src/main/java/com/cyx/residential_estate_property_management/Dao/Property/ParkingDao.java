@@ -26,7 +26,7 @@ public interface ParkingDao {
      * @param id
      * @return
      */
-    @Select("select id,parking_number,status,area,owner,owner_telephone from parking where id = #{id}")
+    @Select("select id,parking_number,status,area,owner,owner_telephone from Parking where id = #{id}")
     Parking getParkingById(Integer id);
 
     /**
@@ -34,20 +34,20 @@ public interface ParkingDao {
      * @param id
      * @return
      */
-    @Delete("delete from parking where id = #{id}")
+    @Delete("delete from Parking where id = #{id}")
     int deleteParkingById(Integer id);
 
     /**
      * 获取所有车位数量
      * @return
      */
-    @Select("select count(*) from parking")
+    @Select("select count(*) from Parking")
     int getParkingNum();
 
     /**
      * 获取空闲车位数量
      * @return
      */
-    @Select("select count(*) from parking where status = '空闲'")
+    @Select("select count(*) from Parking where status = '空闲'")
     int getParkingNum_NotSale();
 }

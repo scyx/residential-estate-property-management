@@ -16,7 +16,7 @@ import java.util.List;
 public interface MenuDao {
     String p_table = " sp_permission ";
     String select_menu = "select ps_id,ps_name,ps_api_path,ps_level from"+ p_table;
-    String test_select_menu = "SELECT ps_id,ps_name,ps_api_path,ps_level FROM sp_permission WHERE ps_id IN (SELECT ps_id FROM authority_group_item ";
+    String test_select_menu = "SELECT ps_id,ps_name,ps_api_path,ps_level FROM sp_permission WHERE ps_id IN (SELECT ps_id FROM Authority_Group_Item ";
 
     /**
      * 获取一级菜单
@@ -48,6 +48,6 @@ public interface MenuDao {
      * @return
      */
     @Select("SELECT ps_api_path from sp_permission " +
-            "WHERE ps_id IN (SELECT ps_id FROM authority_group_item WHERE authority_group_id =#{groupId} )")
+            "WHERE ps_id IN (SELECT ps_id FROM Authority_Group_Item WHERE authority_group_id =#{groupId} )")
     List<String> getPathList(String groupId);
 }

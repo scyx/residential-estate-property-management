@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cyx.residential_estate_property_management.Dao.Property.ParkingDao">
     <select id="getParkingList" parameterType="java.lang.String" resultType="com.cyx.residential_estate_property_management.Bean.Property.Parking">
-        select id,parking_number,area,status,owner,owner_telephone from parking where 1=1
+        select id,parking_number,area,status,owner,owner_telephone from Parking where 1=1
         <choose>
             <when test="parking_number != null and parking_number != ''">
                 and parking_number like CONCAT('%',#{parking_number},'%')

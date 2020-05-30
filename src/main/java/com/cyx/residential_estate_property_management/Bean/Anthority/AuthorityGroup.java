@@ -14,7 +14,7 @@ import java.util.Date;
  * 权限组
  */
 
-@Table(name = "authority_group")
+@Table(name = "Authority_Group")
 @Data
 public class AuthorityGroup {
     // 主键

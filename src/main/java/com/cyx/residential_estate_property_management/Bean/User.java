@@ -10,7 +10,7 @@ import lombok.Data;
  * @data 2020/1/6 10:54
  * 用户
  */
-@Table(name = "user")
+@Table(name = "User")
 @Data
 public class User {
     // 主键

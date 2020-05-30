@@ -13,7 +13,7 @@ import java.util.Date;
  * @data 2020/4/20 15:37
  */
 @Data
-@Table(name = "repair")
+@Table(name = "Repair")
 public class Repair {
     // 修理单id
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 50,isNull = false,isKey = true,isAutoIncrement = true)

@@ -11,7 +11,7 @@ import lombok.Data;
  * 权限组列表中的权限
  * @data 2020/4/29 13:47
  */
-@Table(name = "authority_group_item")
+@Table(name = "Authority_Group_Item")
 @Data
 public class Authority_Group_Item {
     @Column(name = "id" ,type = MySqlTypeConstant.INT , length = 24,isKey = true,isAutoIncrement = true)
